@@ -1,0 +1,108 @@
+/* General page styling */
+body {
+  font-family: "Comic Sans MS", "Comic Neue", cursive, sans-serif; /* playful font */
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #dbefff, #ffffff); /* soft diagonal blue-white gradient */
+}
+
+/* Title */
+h1 {
+  margin-bottom: 10px;
+  font-size: 36px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* shadow effect */
+  color: #333;
+}
+
+/* Status text */
+#status {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Dynamic status colors */
+.win {
+  color: green;
+}
+.lose {
+  color: red;
+}
+.draw {
+  color: orange;
+}
+
+/* Board styling */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 2px;
+  justify-content: center;
+  margin: 20px auto;
+  background: white;
+}
+
+/* Cells */
+.cell {
+  background: white;
+  border: 1px solid #333; /* thin classic lines */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px; /* slightly smaller than full size */
+  font-weight: bold;
+  cursor: pointer;
+  transition:  0.2s, transform 0.2s;
+}
+
+/* Hover effect on empty cells */
+.cell:hover:empty {
+  background: #e0e0e0;
+}
+
+/* X and O colors */
+.cell:contains("X") {
+  color: red;
+}
+.cell:contains("O") {
+  color: blue;
+}
+
+/* Pop animation when placing X or O */
+.cell {
+  animation: none;
+}
+.cell.filled {
+  animation: pop 0.2s ease-in-out;
+}
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Glow effect for winning cells */
+.win-cell {
+  box-shadow: 0 0 15px 4px rgba(0, 255, 0, 0.7);
+}
+
+/* Reset button */
+button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px; /* rounded */
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 6px 0 #0056b3; /* strong shadow */
+  transition: transform 0.1s;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #0056b3;
+}
